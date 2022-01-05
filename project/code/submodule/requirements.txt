@@ -1,0 +1,6 @@
+Pillow
+numpy
+onnx
+onnx_tf
+scipy
+tensorflow
