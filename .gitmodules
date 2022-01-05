@@ -1,0 +1,3 @@
+[submodule "project/code/collisions"]
+	path = project/code/collisions
+	url = https://github.com/anishathalye/neural-hash-collider
