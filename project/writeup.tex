@@ -51,11 +51,14 @@ Some claims and ideas from our project proposal have to be corrected for them to
 We have claimed that there was no scientific papers similar to our project idea in our initial proposal. Soon this was corrected after we have been pointed to \href{https://arxiv.org/pdf/2111.06628.pdf}{a paper} which analyzes collision-resistance of NeuralHash in a very similar fashion as to what we had planned. 
 \\
 \\
-Under this information we want to refocus our project goal a little from producing hash-collisions, as this has clearely been done before, towards hardness of this collision finding under different inputs. As already discussed in our initial proposal we want to see if we can notice a difference in the model between pictures of humans and arbitrary ones as its supposed purpose is distinguishing CSAM material.
+With this information we want to refocus our project goal a little from producing hash-collisions towards analyzing the robustness of the model. First we want to discuss whether we can leak information about the images by looking at the hash. This can be done by training a second network which classifies hash outputs. We plan to test this on a dataset which specifically is not ImageNet to produce noval results and see if the papers results generalize.  
 \\
-Can training on specific inputs make the model harder to fool in that regard? Can we enhance the resilience of the model further? 
+\\
+In an additional second step we want to perform a detection evasion attack. Here we want to see how easy it is to apply minimal pertubations to achieve a maximally different neural hash. This can be done either with gradient based approaches or with simple image manipulations. The second has only been discussed for a limited amount of (reversable) transformations in the paper but it is also of great importance (especially in the use-case of CSAM scans). If there was a simple image filter fooling the network this would render the neural hashing useless.
 
 \section{Progess}
+
+In the following we present our results. Note that we have focused on producing hash-collisions so far.
 
 \subsection{Model extraction}
 
@@ -81,6 +84,13 @@ Obtaining the model and converting it to \texttt{.onnx} was straightforward, how
 
 \section{Next Steps}
 
-Once we manage to reliably produce arbitrary hash-collisions with minimal pertubations we want to progress to analyze hardness of the model in regards to certain input material as well as applying common defenses like retraining the model with pertubated inputs to see if we can improve it further. 
+To successfully refocus the projects goal we need to the following:
+\begin{itemize}
+	\item Decide on datasets to use (e.g., OpenImages from the projects initial proposal).
+	\item Implement a network to classify neural hashes (X) to classes of our dataset (y).
+	\item Test to what extend the model can be fooled by proving images pertubated with simple filters.
+	\item Collect an present gathered results.
+\end{itemize}
+
 
 \end{document}
